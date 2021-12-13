@@ -6,7 +6,7 @@ if [ ! "$BASH_VERSION" ] ; then
 fi
 
 show_version() {
-    grep fullversion_for_installer "$BASEPATH/surveillance/surveillance.py" | head -n 1 | cut -d"=" -f2
+    grep fullversion_for_installer "surveillance/surveillance.py" | head -n 1 | cut -d"=" -f2
 }
 
 is_vlc_mmal_present() {
@@ -45,3 +45,6 @@ if ! is_vlc_mmal_present;then
     echo "Aborting installation, upgrade to latest vlc player with mmal support"
     exit 2
 fi
+
+#Make pngview exec
+chmod +x surveillance/bin/pngview
